@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name=viewport content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link href="css/style.css" rel="stylesheet">
+        <title>Bengaluru</title>
+    </head>
+    <body>
+        <div id="map"></div>
+
+        <div class="container-fluid">
+            <div class="row mx-auto ontop">
+                <div class="col" id="sideList">
+
+                    <div class="card"><h5 class="card-title">Popular Places in Bengaluru</h5></div>
+
+                    <div id="input-bar" class="form-row">
+                        <!-- data binding --> 
+                        <input type="text" class="form-control" placeholder="Filter" data-bind="textInput: search">
+                    </div>
+
+                    <div class="listLocations">
+                        <ul class="filterList list-group" data-bind= "foreach: searchLocations">
+                            <li class="listView" data-bind= "text: name, click: $parent.clickLocation"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>  
+
+
+        <script src="js/libs/knockout-3.5.0.js"></script>
+        <script src="js/libs/jquery.min.js"></script>
+        <script src="js/libs/bootstrap.min.js"></script>
+        <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyVrYXVZfjBXXmhCDVi1uyJJKegqHyIWc&callback=initMap">
+</script>
+<script>
+let map;
+initMap = () =>  {
+     "use strict"
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: {
+            lat: 12.9716,
+            lng: 77.5946 
+        },
+        zoom: 14
+    });
+
+    const viewmodel = new ViewModel();
+    ko.applyBindings(viewmodel);
+};</script>
+    </body>
+
+</html>

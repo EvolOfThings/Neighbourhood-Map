@@ -1,0 +1,28 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+#sideList {
+    background-color: darkgrey;
+}
+
+#map {
+    height: 100%;
+}
+
+.ontop{
+    position: absolute;
+    top: 0;
+}
+.card{
+background-color: darkgrey;
+border: 0;
+padding: 5px;
+}
+
+#input-bar {
+    margin: 8px -5px 8px -5px; 
+}
