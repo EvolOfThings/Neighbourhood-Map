@@ -35,23 +35,10 @@
         <script src="js/libs/jquery.min.js"></script>
         <script src="js/libs/bootstrap.min.js"></script>
         <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyVrYXVZfjBXXmhCDVi1uyJJKegqHyIWc&callback=initMap">
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOkdpYuKN5jZWQlaTyRbC1KNgOxtV29yo&v=3&callback=initMap">
+  
+//   AIzaSyAyVrYXVZfjBXXmhCDVi1uyJJKegqHyIWc
 </script>
-<script>
-let map;
-initMap = () =>  {
-     "use strict"
-    map = new google.maps.Map(document.getElementById('map'), {
-        center: {
-            lat: 12.9716,
-            lng: 77.5946 
-        },
-        zoom: 14
-    });
-
-    const viewmodel = new ViewModel();
-    ko.applyBindings(viewmodel);
-};</script>
     </body>
 
 </html>

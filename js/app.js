@@ -54,7 +54,20 @@ let places = [
 ];
 
 /////////////////   Initialize the map   \\\\\\\\\\\\\\\\\\\\
+let map;
+initMap = () =>  {
+     "use strict"
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: {
+            lat: 12.9716,
+            lng: 77.5946 
+        },
+        zoom: 14
+    });
 
+    const viewmodel = new ViewModel();
+    ko.applyBindings(viewmodel);
+};
  
 
 
@@ -67,38 +80,7 @@ ViewModel = () => {
     self.search = ko.observable(''); // query
     self.markers = [];
 
-       
     
-   // Filtering
-   self.searchLocations = ko.computed(() => {
-    let q = this.filter().toLowerCase();
-
-        for (var i = 0; i < self.places().length; i++) {
-            if (self.places()[i].name().toLowerCase().indexOf(q) > -1) {
-                for (var j = 0; j < markers.length; j++) {
-                    if (self.places()[i].name() == markers[j].title) {
-                        markers[j].setVisible(true);
-                    }
-                }
-            } else {
-                for (var k = 0; k < markers.length; k++) {
-                    if (self.places()[i].name() == markers[k].title) {
-                        markers[k].setVisible(false);
-                    }
-                }
-            }
-        }
-        if (!q) {
-        return self.places();
-        } else {
-            return ko.utils.arrayFilter(this.spaceList(), (item) => {
-                return item.name.toLowerCase().indexOf(q) > -1; 
-            });
-        }
-    });
-
-    let largeInfoWindow = new google.maps.InfoWindow();
-
 // when marker is clicked, the infowindow is populated
 populateInfoWindow = (marker, infowindow) => {
     if(infowindow.marker != marker) {
